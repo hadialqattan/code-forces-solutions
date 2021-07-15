@@ -2,9 +2,9 @@
 from datetime import datetime
 import argparse
 
-FILE_TEMPLATE = """#: GENERATED USING: `python3 -m file_generator {name} {diffculity} {real_id}`
+FILE_TEMPLATE = """#: GENERATED USING: `python3 -m file_generator {real_name} {diffculity} {real_id}`
 #:
-#: Name: {name}
+#: Name: {parsed_name}
 #: Diffculity: {diffculity}
 #: Problem source: https://codeforces.com/problemset/problem/{parsed_id}
 #: 
@@ -76,7 +76,8 @@ def main():
         this_year = datetime.now().year
         f.write(
             FILE_TEMPLATE.format(
-                name=args.name,
+                real_name=args.name,
+                parsed_name=args.name.replace("_", " "),
                 diffculity=args.diffculity,
                 real_id=args.id.replace("/", ""),
                 parsed_id=args.id,
