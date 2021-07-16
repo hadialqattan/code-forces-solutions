@@ -28,29 +28,10 @@
 #:
 #: My solution <2021-07-16>:
 
-print_no = lambda: print("NO")
-print_yes = lambda: print("YES")
-
 
 def main():
-    positions = input()
-    same_team_counter = 0
-    prev_position = positions[0]
-    for p in positions:
-
-        if p == prev_position:
-            # add two if `same_team_counter` equals zero.
-            same_team_counter += 1 if same_team_counter else 2
-        else:
-            same_team_counter = 0
-
-        if same_team_counter == 7:
-            print_yes()
-            break
-
-        prev_position = p
-    else:
-        print_no()
+    p = input()
+    print("YES" if "1111111" in p or "0000000" in p else "NO")
 
 
 if __name__ == "__main__":
